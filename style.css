@@ -1,0 +1,145 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #F5F5F5; /* 白を基調 */
+    color: #333; /* 文字色を黒に */
+    margin: 0;
+    overflow: hidden;
+}
+
+h1 {
+    color: #000000b0; /* 金色 */
+    margin-bottom: 20px;
+}
+
+select, button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333; /* 黒を基調 */
+    color: #FFFFFF; /* 文字色を白に */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+select:hover, button:hover {
+    background-color: #555; /* ホバー時の色を調整 */
+}
+
+button:disabled {
+    background-color: #666; /* 無効時のボタン色を調整 */
+    cursor: not-allowed;
+}
+
+#status {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #666; /* グレー */
+}
+
+#hozon-container {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+#hozon-display-text {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.hozon-saki-bare {
+    color: #FF0000; /* 赤色 */
+}
+
+.hozon-normal {
+    color: #1ed6ca; /* 金色 */
+}
+
+#lottery-count-display {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333; /* 黒色 */
+    margin-bottom: 20px;
+}
+
+#lottery-count-display.pulsing {
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(1.1); opacity: 0.8; }
+}
+
+#number-display {
+    font-size: 5em;
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin: 20px 0;
+    color: #333; /* 黒色 */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 影を調整 */
+}
+
+#result {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #FFD700; /* 金色 */
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7); /* 金色に合わせた影 */
+}
+
+#sub-result {
+    font-size: 1.8em;
+    margin-top: 10px;
+    color: #666; /* グレー */
+}
+
+/* 画面暗転用オーバーレイ */
+#dark-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0); /* 初期は透明 */
+    z-index: 999; /* 他の要素より手前に表示 */
+    pointer-events: none; /* クリックイベントを透過 */
+    transition: background-color 1s ease-out; /* フェードアウトを滑らかに */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: bold;
+    color: white; /* 暗転中の文字色 */
+    opacity: 0; /* 初期は非表示 */
+}
+
+#dark-overlay.active {
+    background-color: rgba(0, 0, 0, 0.9); /* 暗転時の色 */
+    opacity: 1; /* 表示 */
+    pointer-events: auto; /* 暗転中はクリックをブロック */
+}
+
+/* ★追加: 明るい背景色のオーバーレイ */
+#dark-overlay.bright-overlay {
+    background-color: rgba(255, 255, 255, 0.9); /* 明るい背景色 */
+    color: #333; /* 文字色を黒に */
+}
+
+
+/* 金色の文字スタイル */
+.gold-text {
+    color: rgb(0, 0, 0); /* 金色 */
+    text-shadow: 0 0 10px rgba(37, 37, 37, 0.7);
+}
+
+.normal-mode-text {
+    color: #666;
+    text-shadow: 0 0 15px rgba(101, 76, 102, 0.7); /* 金色に合わせた影 */ 
+}
